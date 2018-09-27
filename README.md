@@ -1,10 +1,5 @@
 # PermissionUtils
-Android 运行时权限工具类
 # PermissionUtil
-> 经常写Android运行时权限申请代码，每次都是复制过来之后，改一下权限字符串就用，把代码搞得乱糟糟的，于是便有了封装工具类的想法，话不多说，先看怎么用：
-
-**工具类及Demo：[github](https://github.com/ifadai/PermissionUtils)**
-
 ## 简洁版申请权限
 
 ####  申请一个权限：
@@ -18,7 +13,6 @@ Android 运行时权限工具类
             }
         });
 ```
-#### 然后在onRequestPermissionsResult中：
 
 ```
 if(PermissionUtils.isPermissionRequestSuccess(grantResults))
@@ -28,7 +22,6 @@ if(PermissionUtils.isPermissionRequestSuccess(grantResults))
                 }
 ```
 
-#### 什么？要同时申请多个权限？
 ```
     PermissionUtils.checkAndRequestMorePermissions(mContext, PERMISSIONS, REQUEST_CODE_PERMISSIONS,
                 new PermissionUtils.PermissionRequestSuccessCallBack() {
@@ -45,7 +38,6 @@ if(PermissionUtils.isPermissionRequestSuccess(grantResults))
 - 如果用户勾选了“不再询问”选项，应引导用户去设置页手动开启权限。
 
 于是，引申出了复杂版的权限申请方法：
-## 自定义权限申请：
 ```
 PermissionUtils.checkPermission(mContext, PERMISSION_CAMERA,
                 new PermissionUtils.PermissionCheckCallBack() {
@@ -66,7 +58,6 @@ PermissionUtils.checkPermission(mContext, PERMISSION_CAMERA,
             }
         });
 ```
-#### 然后在onRequestPermissionsResult中：
 
 ```
 PermissionUtils.onRequestPermissionResult(mContext, PERMISSION_CAMERA, grantResults, new PermissionUtils.PermissionCheckCallBack() {
@@ -88,12 +79,6 @@ PermissionUtils.onRequestPermissionResult(mContext, PERMISSION_CAMERA, grantResu
                     }
                 });
 ```
-**基本使用就是这些了，包括前往应用设置页的方法，也在工具类里面，具体使用可以看demo。**
-
-**工具类及Demo：[github](https://github.com/ifadai/PermissionUtils)**
-
-
-贴一下工具类代码：
 
 ```
 package com.fadai.library;
@@ -110,15 +95,6 @@ import android.support.v4.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <pre>
- *     author : FaDai
- *     e-mail : i_fadai@163.com
- *     time   : 2017/06/13
- *     desc   : xxxx描述
- *     version: 1.0
- * </pre>
- */
 
 public class PermissionUtils {
 
@@ -371,12 +347,7 @@ public class PermissionUtils {
 
 }
 
-```
-**工具类及Demo：[github](https://github.com/ifadai/PermissionUtils)**
 
-
-
-**详细使用建议clone代码看一下，第一次封装工具类，如果问题，请指教，谢谢**
 
 
 
